@@ -16,7 +16,7 @@ module ActiveAdminVersioning
       end
 
       def item_attributes
-        YAML.load(object).slice(*item_column_names)
+        YAML.load(object, aliases: true).slice(*item_column_names)
       rescue
         nil
       end
